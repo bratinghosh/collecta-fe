@@ -4,12 +4,12 @@ import { Button, Body, Container, Header, Icon, Left, Right } from 'native-base'
 
 import RedeemCouponCard from '../components/RedeemCouponCard';
 
-const MyCollectionScreen = ({navigation}) => {
+const MyCollectionScreen = (props) => {
   return (
     <Container style={styles.container}>
       <Header style={styles.header}>
         <Left>
-          <Button onPress={() => (navigation.openDrawer())} transparent>
+          <Button onPress={() => (props.navigation.openDrawer())} transparent>
             <Icon type="FontAwesome" name="bars" style={styles.headerIcon} />
           </Button>
         </Left>

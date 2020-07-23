@@ -2,14 +2,14 @@ import React from 'react';
 import { Image, StyleSheet, Text } from 'react-native';
 import { Button, Container } from 'native-base';
 
-const MainScreen = () => {
+const MainScreen = (props) => {
   return (
     <Container style={styles.container}>
       <Image source={require('../assets/images/logo.png')} style={styles.logo} />
-      <Button style={styles.button} onPress={() => {}} rounded>
+      <Button style={styles.button} onPress={() => {props.navigation.navigate('Login')}} rounded>
         <Text style={styles.buttonText}>Login</Text>
       </Button>
-      <Button style={styles.button} onPress={() => {}} rounded>
+      <Button style={styles.button} onPress={() => {props.navigation.navigate('Register')}} rounded>
         <Text style={styles.buttonText}>Register</Text>
       </Button>
     </Container>

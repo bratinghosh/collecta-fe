@@ -3,6 +3,7 @@ import React from 'react';
 import { SafeAreaView, StyleSheet} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import BadgesScreen from './screens/BadgesScreen';
 import DiscoverScreen from './screens/DiscoverScreen';
@@ -16,18 +17,30 @@ import RegisterScreen from './screens/RegisterScreen';
 import CustomDrawer from './components/CustomDrawer';
 
 const Drawer = createDrawerNavigator();
+const Stack = createStackNavigator();
+
+const MainAppScreen = () => {
+  return (
+    <Drawer.Navigator initialRouteName="Map" drawerContent={props => <CustomDrawer {...props} />}>
+      <Drawer.Screen name="Home" component={MapScreen} />
+      <Drawer.Screen name="Discover" component={DiscoverScreen} />
+      <Drawer.Screen name="My Collection" component={MyCollectionScreen} />
+      <Drawer.Screen name="Settings" component={SettingsScreen} />
+      <Drawer.Screen name="Badges" component={BadgesScreen} />
+    </Drawer.Navigator>
+  );
+};
 
 const App = () => {
   return (
     <NavigationContainer>
       <SafeAreaView style={styles.container}>
-        <Drawer.Navigator initialRouteName="Map" drawerContent={props => <CustomDrawer {...props} />}>
-          <Drawer.Screen name="Home" component={MapScreen} />
-          <Drawer.Screen name="Discover" component={DiscoverScreen} />
-          <Drawer.Screen name="My Collection" component={MyCollectionScreen} />
-          <Drawer.Screen name="Settings" component={SettingsScreen} />
-          <Drawer.Screen name="Badges" component={BadgesScreen} />
-        </Drawer.Navigator>
+        <Stack.Navigator initialRouteName="Main" screenOptions={{headerShown: false}}>
+          <Stack.Screen name="Main" component={MainScreen} />
+          <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="Register" component={RegisterScreen} />
+          <Stack.Screen name="App" component={MainAppScreen} />
+        </Stack.Navigator>
       </SafeAreaView>
     </NavigationContainer>
   );
