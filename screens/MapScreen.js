@@ -16,6 +16,9 @@ const MapScreen = (props) => {
           </Body>
           <Right />
         </Header>
+        <Button style={styles.cancelLocationButton} onPress={() => {}}>
+          <Icon type="MaterialIcons" name="location-off" style={styles.buttonIcon}/>
+        </Button>
         <Button style={styles.centerMapButton} onPress={() => {}}>
           <Icon type="FontAwesome5" name="crosshairs" style={styles.buttonIcon}/>
         </Button>
@@ -27,29 +30,44 @@ const styles = StyleSheet.create({
   centerMapButton: {
     backgroundColor: '#ffffff',
     borderRadius: 30,
-    bottom: 30,
+    bottom: 50,
     height: 60,
     justifyContent: 'center',
     position: 'absolute',
     right: 30,
     width: 60,
     shadowColor: '#52307c',
-    shadowOpacity: 0.5,
-    shadowOffset : { width: 2, height: 2}
+    shadowOpacity: 0.8,
+    shadowOffset : { width: 4, height: 4},
+    elevation: 5
+  },
+  cancelLocationButton: {
+    backgroundColor: '#ffffff',
+    borderRadius: 30,
+    bottom: 130,
+    height: 60,
+    justifyContent: 'center',
+    position: 'absolute',
+    right: 30,
+    width: 60,
+    shadowColor: '#52307c',
+    shadowOpacity: 0.8,
+    shadowOffset : { width: 4, height: 4},
+    elevation: 5
   },
   container: {
-    flex: 1,
+    flex: 1
   },
   buttonIcon: {
     color: '#52307c',
-    fontSize: 27,
+    fontSize: 27
   },
   header: {
     backgroundColor: '#52307c'
   },
   headerIcon: {
     color: '#ffffff',
-    fontSize: 27,
+    fontSize: 27
   },
   screenName: {
     color: '#ffffff',

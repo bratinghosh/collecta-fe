@@ -1,6 +1,7 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import { Button, Body, Container, Header, Icon, Left, Right } from 'native-base';
+import { ScrollView } from 'react-native-gesture-handler';
 
 import CollectCouponCard from '../components/CollectCouponCard';
 

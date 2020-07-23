@@ -1,6 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text } from 'react-native';
-import { Button, Body, Container, Header, Icon, Left, Right } from 'native-base';
+import { StyleSheet, Text, View } from 'react-native';
+import { Button, Body, Container, Header, Icon, Image, Left, Right } from 'native-base';
+import { ScrollView } from 'react-native-gesture-handler';
+
+import SettingsContent from '../components/SettingsContent';
 
 const SettingsScreen = (props) => {
   return (
@@ -16,10 +19,11 @@ const SettingsScreen = (props) => {
         </Body>
         <Right>
           <Button onPress={() => (props.navigation.navigate('Main'))} transparent>
-            <Icon type="FontAwesome" name="sign-out" style={styles.headerIcon} />
+            <Icon type="FontAwesome5" name="sign-out-alt" style={styles.headerIcon} />
           </Button>
         </Right>
       </Header>
+      <SettingsContent />
     </Container>
   );
 };

@@ -7,27 +7,29 @@ const RedeemCouponCard = () => {
 
   return (
     <Card style={styles.couponCard}>
-        <Modal visible={couponRedeemModalState} animationType="slide" onRequestClose={() => {}}>
+        <Modal transparent={true} visible={couponRedeemModalState} animationType="fade" onRequestClose={() => {}}>
           <SafeAreaView>
-            <View>
-              <Button style={styles.closeButton} onPress={() => setCouponRedeemModalState(false)} transparent>
-                <Icon type="FontAwesome" name="close" style={styles.closeIcon}/>
-              </Button>
-              <ScrollView style={styles.couponModalView}>
-                <Text style={styles.couponTitle}>
-                  Coupon Title
-                </Text>
-                <Text style={styles.couponExpiryDate}>
-                  Expiry Date: DD/MM/YYYY
-                </Text>
-                <Text style={styles.couponCompany}>
-                  Company Name
-                </Text>
-                <Text style={styles.couponDescription}>
-                  Coupon Description
-                </Text>
+            <View style={styles.redeemModalOuterView}>
+              <View style={styles.redeemModalInnerView}>
+                <Button style={styles.closeButton} onPress={() => setCouponRedeemModalState(false)} transparent>
+                  <Icon type="FontAwesome" name="close" style={styles.closeIcon}/>
+                </Button>
+                <ScrollView style={styles.couponModalView}>
+                  <Text style={styles.couponTitle}>
+                    Coupon Title
+                  </Text>
+                  <Text style={styles.couponExpiryDate}>
+                    Expiry Date: DD/MM/YYYY
+                  </Text>
+                  <Text style={styles.couponCompany}>
+                    Company Name
+                  </Text>
+                  <Text style={styles.couponDescription}>
+                    Coupon Description
+                  </Text>
                 <Image source={require('../assets/images/example_qr_code.png')} style={styles.couponQRCode}/>
-              </ScrollView>
+                </ScrollView>
+              </View>
             </View>
           </SafeAreaView>
         </Modal>
@@ -87,7 +89,7 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   couponExpiryDate: {
-    color: '#52307c',
+    color: '#ff0000',
     marginBottom: 10
   },
   couponQRCode: {
@@ -118,7 +120,22 @@ const styles = StyleSheet.create({
   redeemText: {
     color: '#52307c',
     fontSize: 20,
-    fontWeight: '600'
+    fontWeight: '600',
+    width: Dimensions.get('window').width * 0.95 * 0.8,
+    textAlign: 'center'
+  },
+  redeemModalOuterView: {
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: 'rgba(0, 0, 0, 0.75)'
+  },
+  redeemModalInnerView: {
+    marginHorizontal: 5,
+    marginVertical: 30,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 25,
+    alignItems: "center"
   }
 });
 

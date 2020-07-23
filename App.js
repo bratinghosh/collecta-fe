@@ -5,7 +5,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import BadgesScreen from './screens/BadgesScreen';
 import DiscoverScreen from './screens/DiscoverScreen';
 import MainScreen from './screens/MainScreen';
 import MapScreen from './screens/MapScreen';
@@ -26,7 +25,6 @@ const MainAppScreen = () => {
       <Drawer.Screen name="Discover" component={DiscoverScreen} />
       <Drawer.Screen name="My Collection" component={MyCollectionScreen} />
       <Drawer.Screen name="Settings" component={SettingsScreen} />
-      <Drawer.Screen name="Badges" component={BadgesScreen} />
     </Drawer.Navigator>
   );
 };
@@ -35,7 +33,7 @@ const App = () => {
   return (
     <NavigationContainer>
       <SafeAreaView style={styles.container}>
-        <Stack.Navigator initialRouteName="Main" screenOptions={{headerShown: false}}>
+        <Stack.Navigator initialRouteName="App" screenOptions={{headerShown: false}}>
           <Stack.Screen name="Main" component={MainScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Register" component={RegisterScreen} />

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import { Button, Container, Icon } from 'native-base';
 import { TextInput } from 'react-native-paper';
 
@@ -16,8 +16,8 @@ const RegisterScreen = (props) => {
       </Button>
       <TextInput placeholder="Full Name" value={name} onChangeText={name => setName(name)} style={styles.textInputBox} underlineColor="#52307c" />
       <TextInput placeholder="Email" value={email} onChangeText={email => setEmail(email)} style={styles.textInputBox} underlineColor="#52307c" />
-      <TextInput placeholder="Password" value={name} onChangeText={password => setPassword(password)} style={styles.textInputBox} underlineColor="#52307c" />
-      <TextInput placeholder="Confirm Password" value={name} onChangeText={confirmPassword => setConfirmPassword(confirmPassword)} style={styles.textInputBox} underlineColor="#52307c" />
+      <TextInput placeholder="Password" value={password} onChangeText={password => setPassword(password)} style={styles.textInputBox} underlineColor="#52307c" secureTextEntry={true}/>
+      <TextInput placeholder="Confirm Password" value={confirmPassword} onChangeText={confirmPassword => setConfirmPassword(confirmPassword)} style={styles.textInputBox} underlineColor="#52307c" secureTextEntry={true}/>
       <Button style={styles.button} onPress={() => props.navigation.navigate('App')} rounded bordered>
         <Text style={styles.buttonText}>Register</Text>
       </Button>
@@ -36,8 +36,9 @@ const styles = StyleSheet.create({
     top: 30,
     width: 60,
     shadowColor: '#52307c',
-    shadowOpacity: 0.5,
-    shadowOffset : { width: 2, height: 2}
+    shadowOpacity: 0.8,
+    shadowOffset : { width: 4, height: 4},
+    elevation: 5
   },
   container: {
     alignItems: 'center',
@@ -61,6 +62,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: '600',
     paddingVertical: 5,
+    width: 225,
+    textAlign: 'center'
   },
   textInputBox: {
     height: 50,

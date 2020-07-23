@@ -40,7 +40,9 @@ const styles = StyleSheet.create({
   collectText: {
     color: '#52307c',
     fontSize: 20,
-    fontWeight: '600'
+    fontWeight: '600',
+    width: Dimensions.get('window').width * 0.95,
+    textAlign: 'center'
   }
 });
 

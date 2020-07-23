@@ -1,6 +1,7 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import { Button, Body, Container, Header, Icon, Left, Right } from 'native-base';
+import { ScrollView } from 'react-native-gesture-handler';
 
 import RedeemCouponCard from '../components/RedeemCouponCard';
 
@@ -19,6 +20,8 @@ const MyCollectionScreen = (props) => {
         <Right />
       </Header>
       <ScrollView>
+        <RedeemCouponCard />
+        <RedeemCouponCard />
         <RedeemCouponCard />
       </ScrollView>
     </Container>
