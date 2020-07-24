@@ -12,7 +12,7 @@ const CustomDrawer = (props) => {
       </View>
       <DrawerItem icon={() => (<Icon type="MaterialIcons" name="home" style={styles.icon} />)} label="Home" onPress={() => {props.navigation.navigate('Home')}} />
       <DrawerItem icon={() => (<Icon type="Foundation" name="burst-new" style={styles.icon} />)} label="Discover" onPress={() => {props.navigation.navigate('Discover')}} />
-      <DrawerItem icon={() => (<Icon type="MaterialIcons" name="collections" style={styles.icon} />)} label="Collection" onPress={() => {props.navigation.navigate('My Collection')}} />
+      <DrawerItem icon={() => (<Icon type="MaterialIcons" name="collections" style={styles.icon} />)} label="My Collection" onPress={() => {props.navigation.navigate('My Collection')}} />
       <DrawerItem icon={() => (<Icon type="MaterialIcons" name="settings" style={styles.icon} />)} label="Settings" onPress={() => {props.navigation.navigate('Settings')}} />
     </Container>
   );
