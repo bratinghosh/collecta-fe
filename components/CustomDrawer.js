@@ -7,9 +7,7 @@ const CustomDrawer = (props) => {
   return (
     <Container style={styles.container}>
       <View style={styles.header}>
-        <View style={styles.profileCircle}>
-          <Text style={styles.profileText}>JD</Text>
-        </View>
+        <Image source={require('../assets/images/example_profile_picture.png')} style={styles.profileCircle} />
         <Text style={styles.profileName}>John Doe</Text>
       </View>
       <DrawerItem icon={() => (<Icon type="MaterialIcons" name="home" style={styles.icon} />)} label="Home" onPress={() => {props.navigation.navigate('Home')}} />
@@ -45,16 +43,11 @@ const styles = StyleSheet.create({
     height: 70,
     width: 70,
     borderRadius: 50,
-    backgroundColor: '#52307c',
     borderColor: '#ffffff',
-    borderWidth: 1,
+    borderWidth: 2,
     alignItems: 'center',
-    justifyContent: 'center'
-  },
-  profileText: {
-    color: '#ffffff',
-    fontSize: 35,
-    fontWeight: '700'
+    justifyContent: 'center',
+    marginHorizontal: 5
   }
 });
 

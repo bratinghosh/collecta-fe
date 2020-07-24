@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { Button, Container } from 'native-base';
+import { Image, StyleSheet, View, Text } from 'react-native';
+import { Button, Container, Icon } from 'native-base';
 import { TextInput } from 'react-native-paper';
 
 const SettingsContent = (props) => {
@@ -10,8 +10,11 @@ const SettingsContent = (props) => {
 
   return (
     <Container style={styles.settingsContainer}>
-      <View style={styles.profileCircle}>
-        <Text style={styles.profileText}>JD</Text>
+      <View style={styles.profile}>
+        <Image source={require('../assets/images/example_profile_picture.png')} style={styles.profileCircle} />
+        <Button style={styles.profileUpdateButton} onPress={() => {}}>
+          <Icon type="MaterialIcons" name="create" style={styles.profileUpdateIcon} />
+        </Button>
       </View>
       <TextInput placeholder="John Doe" value={name} onChangeText={(name) => {setName(name)}} style={styles.textInputBox} underlineColor="#52307c" />
       <TextInput placeholder="johndoe123@gmail.com" value={null} style={styles.textInputBox} underlineColor="#52307c" disabled/>
@@ -50,21 +53,34 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginVertical: 20
   },
+  profile: {
+    flexDirection: 'row',
+    backgroundColor: '#ffffff',
+    marginVertical: 20,
+    marginHorizontal: 5
+  },
   profileCircle: {
-    height: 100,
-    width: 100,
-    borderRadius: 50,
-    backgroundColor: '#52307c33',
+    height: 150,
+    width: 150,
+    borderRadius: 75,
     borderColor: '#52307c',
     borderWidth: 2,
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 20
+    marginHorizontal: 5
   },
-  profileText: {
-    color: '#52307c',
-    fontSize: 50,
-    fontWeight: '700'
+  profileUpdateButton: {
+    backgroundColor: '#52307c',
+    height: 50,
+    width: 50,
+    borderRadius: 25,
+    position: 'absolute',
+    right: 3,
+    bottom: 3
+  },
+  profileUpdateIcon: {
+    color: '#ffffff',
+    fontSize: 18
   }
 });
 

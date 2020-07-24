@@ -125,17 +125,17 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   redeemModalOuterView: {
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.75)'
   },
   redeemModalInnerView: {
     marginHorizontal: 5,
     marginVertical: 30,
-    backgroundColor: "white",
+    backgroundColor: '#ffffff',
     borderRadius: 20,
     padding: 25,
-    alignItems: "center"
+    alignItems: 'center'
   }
 });
 

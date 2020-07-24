@@ -1,6 +1,7 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import { SafeAreaView, StyleSheet} from 'react-native';
+import { Provider as PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -32,14 +33,16 @@ const MainAppScreen = () => {
 const App = () => {
   return (
     <NavigationContainer>
-      <SafeAreaView style={styles.container}>
-        <Stack.Navigator initialRouteName="App" screenOptions={{headerShown: false}}>
-          <Stack.Screen name="Main" component={MainScreen} />
-          <Stack.Screen name="Login" component={LoginScreen} />
-          <Stack.Screen name="Register" component={RegisterScreen} />
-          <Stack.Screen name="App" component={MainAppScreen} />
-        </Stack.Navigator>
-      </SafeAreaView>
+      <PaperProvider>
+        <SafeAreaView style={styles.container}>
+          <Stack.Navigator initialRouteName="App" screenOptions={{headerShown: false}}>
+            <Stack.Screen name="Main" component={MainScreen} />
+            <Stack.Screen name="Login" component={LoginScreen} />
+            <Stack.Screen name="Register" component={RegisterScreen} />
+            <Stack.Screen name="App" component={MainAppScreen} />
+          </Stack.Navigator>
+        </SafeAreaView>
+      </PaperProvider>
     </NavigationContainer>
   );
 };

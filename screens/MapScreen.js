@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { Body, Button, Container, Icon, Header, Left, Text, Right } from 'native-base';
+import { Snackbar } from 'react-native-paper';
 
 const MapScreen = (props) => {
+  const [snackbarVisible, setSnackbarVisible] = useState(false);
+
   return (
     <Container style={styles.container}>
         <Header style={styles.header}>
@@ -22,6 +25,9 @@ const MapScreen = (props) => {
         <Button style={styles.centerMapButton} onPress={() => {}}>
           <Icon type="FontAwesome5" name="crosshairs" style={styles.buttonIcon}/>
         </Button>
+        <Snackbar action={{label: 'Show Me', onPress: () => {props.navigation.navigate('My Collection')}}} visible={snackbarVisible} onDismiss={() => {setSnackbarVisible(!snackbarVisible)}} style={styles.snackbar} duration={5000}>
+          You have discovered a new Coupon!
+        </Snackbar>
     </Container>
   );
 };
@@ -72,6 +78,9 @@ const styles = StyleSheet.create({
   screenName: {
     color: '#ffffff',
     fontSize: 22
+  },
+  snackbar: {
+    backgroundColor: '#52307c'
   }
 });
 
