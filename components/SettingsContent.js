@@ -5,8 +5,6 @@ import { TextInput } from 'react-native-paper';
 
 const SettingsContent = (props) => {
   const [name, setName] = React.useState('');
-  const [newPassword, setNewPassword] = React.useState('');
-  const [confirmNewPassword, setConfirmNewPassword] = React.useState('');
 
   return (
     <Container style={styles.settingsContainer}>
@@ -18,8 +16,6 @@ const SettingsContent = (props) => {
       </View>
       <TextInput placeholder="John Doe" value={name} onChangeText={(name) => {setName(name)}} style={styles.textInputBox} underlineColor="#52307c" />
       <TextInput placeholder="johndoe123@gmail.com" value={null} style={styles.textInputBox} underlineColor="#52307c" disabled/>
-      <TextInput placeholder="New Password" value={newPassword} onChangeText={(newPassword) => {setNewPassword(newPassword)}} style={styles.textInputBox} underlineColor="#52307c" secureTextEntry={true}/>
-      <TextInput placeholder="Confirm New Password" value={confirmNewPassword} onChangeText={(confirmNewPassword) => {setConfirmNewPassword(confirmNewPassword)}} style={styles.textInputBox} underlineColor="#52307c" secureTextEntry={true}/>
       <Button style={styles.button} onPress={() => {}} rounded bordered>
         <Text style={styles.buttonText}>Update</Text>
       </Button>

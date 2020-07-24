@@ -8,31 +8,48 @@ const MapScreen = (props) => {
 
   return (
     <Container style={styles.container}>
-        <Header style={styles.header}>
-          <Left>
-            <Button onPress={() => (props.navigation.openDrawer())} transparent>
-              <Icon type="FontAwesome" name="bars" style={styles.headerIcon} />
-            </Button>
-          </Left>
-          <Body>
-            <Text style={styles.screenName}>Home</Text>
-          </Body>
-          <Right />
-        </Header>
-        <Button style={styles.cancelLocationButton} onPress={() => {}}>
-          <Icon type="MaterialIcons" name="location-off" style={styles.buttonIcon}/>
-        </Button>
-        <Button style={styles.centerMapButton} onPress={() => {}}>
-          <Icon type="FontAwesome5" name="crosshairs" style={styles.buttonIcon}/>
-        </Button>
-        <Snackbar action={{label: 'Show Me', onPress: () => {props.navigation.navigate('My Collection')}}} visible={snackbarVisible} onDismiss={() => {setSnackbarVisible(!snackbarVisible)}} style={styles.snackbar} duration={5000}>
-          You have discovered a new Coupon!
-        </Snackbar>
+      <Button style={styles.menuButton} onPress={() => (props.navigation.openDrawer())}>
+        <Icon type="FontAwesome" name="bars" style={styles.buttonIcon}/>
+      </Button>
+      {/* {<Header style={styles.header}>
+        <Left>
+          <Button onPress={() => (props.navigation.openDrawer())} transparent>
+            <Icon type="FontAwesome" name="bars" style={styles.headerIcon} />
+          </Button>
+        </Left>
+        <Body>
+          <Text style={styles.screenName}>Home</Text>
+        </Body>
+        <Right />
+      </Header>} */}
+      <Button style={styles.cancelLocationButton} onPress={() => {}}>
+        <Icon type="MaterialIcons" name="location-off" style={styles.buttonIcon}/>
+      </Button>
+      <Button style={styles.centerMapButton} onPress={() => {}}>
+        <Icon type="FontAwesome5" name="crosshairs" style={styles.buttonIcon}/>
+      </Button>
+      <Snackbar action={{label: 'Show Me', onPress: () => {props.navigation.navigate('My Collection')}}} visible={snackbarVisible} onDismiss={() => {setSnackbarVisible(!snackbarVisible)}} style={styles.snackbar} duration={5000}>
+        You have discovered a new Coupon!
+      </Snackbar>
     </Container>
   );
 };
 
 const styles = StyleSheet.create({
+  menuButton: {
+    backgroundColor: '#ffffff',
+    borderRadius: 30,
+    top: 30,
+    height: 60,
+    justifyContent: 'center',
+    position: 'absolute',
+    left: 30,
+    width: 60,
+    shadowColor: '#52307c',
+    shadowOpacity: 0.8,
+    shadowOffset : { width: 4, height: 4},
+    elevation: 5
+  },
   centerMapButton: {
     backgroundColor: '#ffffff',
     borderRadius: 30,
@@ -67,17 +84,6 @@ const styles = StyleSheet.create({
   buttonIcon: {
     color: '#52307c',
     fontSize: 27
-  },
-  header: {
-    backgroundColor: '#52307c'
-  },
-  headerIcon: {
-    color: '#ffffff',
-    fontSize: 27
-  },
-  screenName: {
-    color: '#ffffff',
-    fontSize: 22
   },
   snackbar: {
     backgroundColor: '#52307c'
