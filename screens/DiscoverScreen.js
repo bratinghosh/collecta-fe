@@ -10,8 +10,8 @@ const DiscoverScreen = (props) => {
     <Container style={styles.container}>
       <Header style={styles.header}>
         <Left>
-          <Button onPress={() => (props.navigation.openDrawer())} transparent>
-            <Icon type="FontAwesome" name="bars" style={styles.headerIcon} />
+          <Button onPress={() => props.navigation.navigate('Home')} transparent>
+            <Icon type="AntDesign" name="arrowleft" style={styles.headerIcon} />
           </Button>
         </Left>
         <Body>

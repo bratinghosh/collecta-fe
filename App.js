@@ -22,10 +22,10 @@ const Stack = createStackNavigator();
 const MainAppScreen = () => {
   return (
     <Drawer.Navigator initialRouteName="Map" drawerContent={props => <CustomDrawer {...props} />}>
-      <Drawer.Screen name="Home" component={MapScreen} />
-      <Drawer.Screen name="Discover" component={DiscoverScreen} />
-      <Drawer.Screen name="My Collection" component={MyCollectionScreen} />
-      <Drawer.Screen name="Settings" component={SettingsScreen} />
+      <Drawer.Screen name="Home" component={MapScreen} options={{ swipeEnabled: false }} />
+      <Drawer.Screen name="Discover" component={DiscoverScreen} options={{ swipeEnabled: false }} />
+      <Drawer.Screen name="My Collection" component={MyCollectionScreen} options={{ swipeEnabled: false }} />
+      <Drawer.Screen name="Settings" component={SettingsScreen} options={{ swipeEnabled: false }} />
     </Drawer.Navigator>
   );
 };
