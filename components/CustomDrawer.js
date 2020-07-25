@@ -10,7 +10,7 @@ const CustomDrawer = (props) => {
         <Image source={require('../assets/images/example_profile_picture.png')} style={styles.profileCircle} />
         <Text style={styles.profileName}>John Doe</Text>
       </View>
-      <View style={{flexGrow: 1}}>
+      <View style={styles.drawerItems}>
         <DrawerItem icon={() => (<Icon type="MaterialIcons" name="home" style={styles.icon} />)} label="Home" onPress={() => {props.navigation.navigate('Home')}} />
         <DrawerItem icon={() => (<Icon type="Foundation" name="burst-new" style={styles.icon} />)} label="Discover" onPress={() => {props.navigation.navigate('Discover')}} />
         <DrawerItem icon={() => (<Icon type="MaterialIcons" name="collections" style={styles.icon} />)} label="My Collection" onPress={() => {props.navigation.navigate('My Collection')}} />
@@ -24,6 +24,9 @@ const CustomDrawer = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  drawerItems: {
+    flexGrow: 1
   },
   header: {
     flexDirection: 'row',
