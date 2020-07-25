@@ -17,11 +17,7 @@ const SettingsScreen = (props) => {
         <Body>
           <Text style={styles.screenName}>Settings</Text>
         </Body>
-        <Right>
-          <Button onPress={() => (props.navigation.navigate('Main'))} transparent>
-            <Icon type="FontAwesome5" name="sign-out-alt" style={styles.headerIcon} />
-          </Button>
-        </Right>
+        <Right/>
       </Header>
       <SettingsContent />
     </Container>
