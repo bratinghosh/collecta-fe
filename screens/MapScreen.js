@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
-import { Body, Button, Container, Icon, Header, Left, Text, Right } from 'native-base';
+import { Button, Container, Icon} from 'native-base';
 import { Snackbar } from 'react-native-paper';
 
 const MapScreen = (props) => {
@@ -11,17 +11,6 @@ const MapScreen = (props) => {
       <Button style={styles.menuButton} onPress={() => (props.navigation.openDrawer())}>
         <Icon type="FontAwesome" name="bars" style={styles.buttonIcon}/>
       </Button>
-      {/* {<Header style={styles.header}>
-        <Left>
-          <Button onPress={() => (props.navigation.openDrawer())} transparent>
-            <Icon type="FontAwesome" name="bars" style={styles.headerIcon} />
-          </Button>
-        </Left>
-        <Body>
-          <Text style={styles.screenName}>Home</Text>
-        </Body>
-        <Right />
-      </Header>} */}
       <Button style={styles.cancelLocationButton} onPress={() => {}}>
         <Icon type="MaterialIcons" name="location-off" style={styles.buttonIcon}/>
       </Button>

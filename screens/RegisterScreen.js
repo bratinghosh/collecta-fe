@@ -11,7 +11,7 @@ const RegisterScreen = (props) => {
 
   return (
     <Container style={styles.container}>
-      <Button style={styles.backButton} onPress={() => props.navigation.navigate('Main')}>
+      <Button style={styles.backButton} onPress={() => props.navigation.goBack()}>
         <Icon type="MaterialIcons" name="arrow-back" style={styles.backIcon}/>
       </Button>
       <TextInput placeholder="Full Name" value={name} onChangeText={name => setName(name)} style={styles.textInputBox} underlineColor="#52307c" />

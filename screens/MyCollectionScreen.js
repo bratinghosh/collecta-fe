@@ -10,7 +10,7 @@ const MyCollectionScreen = (props) => {
     <Container style={styles.container}>
       <Header style={styles.header}>
         <Left>
-          <Button onPress={() => props.navigation.navigate('Home')} transparent>
+          <Button onPress={() => props.navigation.goBack()} transparent>
             <Icon type="AntDesign" name="arrowleft" style={styles.headerIcon} />
           </Button>
         </Left>
