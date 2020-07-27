@@ -11,8 +11,8 @@ const CustomDrawer = (props) => {
         <Text style={styles.profileName}>John Doe</Text>
       </View>
       <View style={styles.drawerItems}>
-        <DrawerItem icon={() => (<Icon type="Foundation" name="burst-new" style={styles.icon} />)} label="Discover" onPress={() => {props.navigation.navigate('Discover')}} />
-        <DrawerItem icon={() => (<Icon type="MaterialIcons" name="collections" style={styles.icon} />)} label="My Collection" onPress={() => {props.navigation.navigate('My Collection')}} />
+        <DrawerItem icon={() => (<Icon type="MaterialIcons" name="fiber-new" style={styles.icon} />)} label="Discover" onPress={() => {props.navigation.navigate('Discover')}} />
+        <DrawerItem icon={() => (<Icon type="MaterialIcons" name="confirmation-number" style={styles.icon} />)} label="My Collection" onPress={() => {props.navigation.navigate('My Collection')}} />
         <DrawerItem icon={() => (<Icon type="MaterialIcons" name="settings" style={styles.icon} />)} label="Settings" onPress={() => {props.navigation.navigate('Settings')}} />
       </View>
       <DrawerItem icon={() => (<Icon type="FontAwesome5" name="sign-out-alt" style={styles.icon} />)} label="Logout" onPress={() => {props.navigation.navigate('Main')}} />

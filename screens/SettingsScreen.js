@@ -3,6 +3,7 @@ import { StyleSheet, Text } from 'react-native';
 import { Button, Body, Container, Header, Icon, Left, Right } from 'native-base';
 
 import SettingsContent from '../components/SettingsContent';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const SettingsScreen = (props) => {
   return (
@@ -18,7 +19,9 @@ const SettingsScreen = (props) => {
         </Body>
         <Right/>
       </Header>
-      <SettingsContent />
+      <ScrollView>
+        <SettingsContent />
+      </ScrollView>
     </Container>
   );
 };

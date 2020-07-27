@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
-import { Button, Container, Icon} from 'native-base';
+import { Button, Container, Icon, View} from 'native-base';
 import { Snackbar } from 'react-native-paper';
+import MapView from 'react-native-maps';
 
 const MapScreen = (props) => {
   const [snackbarVisible, setSnackbarVisible] = useState(false);
 
   return (
     <Container style={styles.container}>
+      <MapView provider={null} style={styles.map}>
+      </MapView>
       <Button style={styles.menuButton} onPress={() => (props.navigation.openDrawer())}>
         <Icon type="FontAwesome" name="bars" style={styles.buttonIcon}/>
       </Button>
@@ -25,6 +28,9 @@ const MapScreen = (props) => {
 };
 
 const styles = StyleSheet.create({
+  map: {
+    ...StyleSheet.absoluteFillObject
+  },
   menuButton: {
     backgroundColor: '#ffffff',
     borderRadius: 30,
@@ -35,7 +41,7 @@ const styles = StyleSheet.create({
     left: 30,
     width: 60,
     shadowColor: '#52307c',
-    shadowOpacity: 0.8,
+    shadowOpacity: 0.5,
     shadowOffset : { width: 4, height: 4},
     elevation: 5
   },
@@ -49,7 +55,7 @@ const styles = StyleSheet.create({
     right: 30,
     width: 60,
     shadowColor: '#52307c',
-    shadowOpacity: 0.8,
+    shadowOpacity: 0.5,
     shadowOffset : { width: 4, height: 4},
     elevation: 5
   },
@@ -63,7 +69,7 @@ const styles = StyleSheet.create({
     right: 30,
     width: 60,
     shadowColor: '#52307c',
-    shadowOpacity: 0.8,
+    shadowOpacity: 0.5,
     shadowOffset : { width: 4, height: 4},
     elevation: 5
   },
