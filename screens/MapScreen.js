@@ -10,7 +10,7 @@ const MapScreen = (props) => {
 
   return (
     <Container style={styles.container}>
-      <MapView provider={null} style={styles.map} showsUserLocation={true}>
+      <MapView provider={null} style={styles.map} showsUserLocation={true} showsCompass={false}>
         {/* {<Marker coordinate={{latitude: 22.28, longitude: 114.13}} title="Checkpoint">
           <Icon type="FontAwesome5" name="search-location" style={{color: '#52307c'}}/>
         </Marker>
