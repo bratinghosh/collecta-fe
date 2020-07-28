@@ -1,16 +1,79 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { StyleSheet } from 'react-native';
 import { Button, Container, Icon} from 'native-base';
 import { Snackbar } from 'react-native-paper';
 import MapView, { Marker, Circle } from 'react-native-maps';
+import RNLocation from 'react-native-location';
 
 const MapScreen = (props) => {
+  const _map = useRef(null);
+
   const [couponSnackbarVisible, setCouponSnackbarVisible] = useState(false);
   const [checkpointSnackbarVisible, setCheckpointSnackbarVisible] = useState(false);
+  const [location, setLocation] = useState({latitude: 22.280535, longitude: 114.132016});
+
+  // helper functions
+  startUpdatingLocation = () => {
+    locationSubscription = RNLocation.subscribeToLocationUpdates(
+      locations => {
+        setLocation(locations[0]);
+      }
+    );
+  };
+
+  stopUpdatingLocation = () => {
+    locationSubscription && locationSubscription();
+    setLocation(null);
+  };
+
+  centerUserLocation = () => {
+    _map.current.animateToRegion(
+      {
+          latitude: location.latitude,
+          longitude: location.longitude,
+          latitudeDelta: 0.009,
+          longitudeDelta: 0.001,
+      },
+      1000
+    );
+  };
+
+  // constructor
+  useEffect(() => {
+    RNLocation.configure({
+      desiredAccuracy: {
+        ios: "bestForNavigation",
+        android: "highAccuracy",
+        // android specific
+        interval: 250,
+        fastestInterval: 500,
+        maxWaitTime: 250,
+      },
+    });
+  }, []);
+
+  // componentDidMount and componentDidUpdate
+  useEffect(() => {
+    RNLocation.requestPermission({
+      ios: "whenInUse",
+      android: {
+        detail: "fine",
+        rationale: {
+          title: "Location permission",
+          buttonPositive: "OK",
+          buttonNegative: "Cancel"
+        }
+      }
+    }).then(granted => {
+      if (granted) {
+        startUpdatingLocation();
+      }
+    });
+  }, [location]);
 
   return (
     <Container style={styles.container}>
-      <MapView provider={null} style={styles.map} showsUserLocation={true} showsCompass={false}>
+      <MapView ref={_map} provider={null} style={styles.map} showsCompass={false}>
         {/* {<Marker coordinate={{latitude: 22.28, longitude: 114.13}} title="Checkpoint">
           <Icon type="FontAwesome5" name="search-location" style={{color: '#52307c'}}/>
         </Marker>
@@ -20,6 +83,9 @@ const MapScreen = (props) => {
         <Circle center={{latitude: 22.285, longitude: 114.133}} radius={75} strokeColor="#52307c33" fillColor="#52307c33"/>
         <Circle center={{latitude: 22.285, longitude: 114.134}} radius={75} strokeColor="#52307c33" fillColor="#52307c33"/>
         <Circle center={{latitude: 22.282, longitude: 114.134}} radius={75} strokeColor="#52307c33" fillColor="#52307c33"/>} */}
+        <Marker coordinate={{latitude: location.latitude, longitude: location.longitude}} title="My Location">
+          <Icon type="FontAwesome5" name="user-secret" style={{color: '#52307c'}}/>
+        </Marker>
       </MapView>
       <Button style={styles.menuButton} onPress={() => (props.navigation.openDrawer())}>
         <Icon type="FontAwesome" name="bars" style={styles.buttonIcon}/>
@@ -27,7 +93,7 @@ const MapScreen = (props) => {
       <Button style={styles.cancelLocationButton} onPress={() => {}}>
         <Icon type="MaterialIcons" name="location-off" style={styles.buttonIcon}/>
       </Button>
-      <Button style={styles.centerMapButton} onPress={() => {}}>
+      <Button style={styles.centerMapButton} onPress={() => {centerUserLocation()}}>
         <Icon type="FontAwesome5" name="crosshairs" style={styles.buttonIcon}/>
       </Button>
       <Snackbar action={{label: 'Show Me', onPress: () => {props.navigation.navigate('My Collection')}}} visible={couponSnackbarVisible} onDismiss={() => {setCouponSnackbarVisible(!couponSnackbarVisible)}} style={styles.snackbar} duration={5000}>
