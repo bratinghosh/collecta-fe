@@ -42,12 +42,7 @@ const MapScreen = (props) => {
   useEffect(() => {
     RNLocation.configure({
       desiredAccuracy: {
-        ios: "bestForNavigation",
-        android: "highAccuracy",
-        // android specific
-        interval: 250,
-        fastestInterval: 500,
-        maxWaitTime: 250,
+        distanceFilter: 1.0
       },
     });
   }, []);
@@ -75,7 +70,7 @@ const MapScreen = (props) => {
     <Container style={styles.container}>
       <MapView ref={_map} provider={null} style={styles.map} showsCompass={false}>
         {/* {<Marker coordinate={{latitude: 22.28, longitude: 114.13}} title="Checkpoint">
-          <Icon type="FontAwesome5" name="search-location" style={{color: '#52307c'}}/>
+          <Icon type="Foundation" name="magnifying-glass" style={{color: '#52307c'}}/>
         </Marker>
         <Marker coordinate={{latitude: 22.287, longitude: 114.135}} title="Shop">
           <Icon type="MaterialIcons" name="location-on" style={{color: '#ff0000'}}/>
@@ -84,7 +79,7 @@ const MapScreen = (props) => {
         <Circle center={{latitude: 22.285, longitude: 114.134}} radius={75} strokeColor="#52307c33" fillColor="#52307c33"/>
         <Circle center={{latitude: 22.282, longitude: 114.134}} radius={75} strokeColor="#52307c33" fillColor="#52307c33"/>} */}
         <Marker coordinate={{latitude: location.latitude, longitude: location.longitude}} title="My Location">
-          <Icon type="FontAwesome5" name="user-secret" style={{color: '#52307c'}}/>
+          <Icon type="FontAwesome5" name="male" style={{color: '#52307c'}}/>
         </Marker>
       </MapView>
       <Button style={styles.menuButton} onPress={() => (props.navigation.openDrawer())}>
