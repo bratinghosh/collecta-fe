@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   },
   screenName: {
     color: '#ffffff',
-    fontSize: 22
+    fontSize: 18
   }
 });
 

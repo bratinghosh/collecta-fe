@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { StyleSheet } from 'react-native';
 import { Button, Container, Icon} from 'native-base';
 import { Snackbar } from 'react-native-paper';
-import MapView, { Marker, Circle } from 'react-native-maps';
+import MapView, { Marker } from 'react-native-maps';
 import RNLocation from 'react-native-location';
 
 const MapScreen = (props) => {
@@ -71,18 +71,18 @@ const MapScreen = (props) => {
   return (
     <Container style={styles.container}>
       <MapView ref={_map} provider={null} style={styles.map} showsCompass={false}>
-        {/* {<Marker coordinate={{latitude: 22.28, longitude: 114.13}} title="Checkpoint">
-          <Icon type="Foundation" name="magnifying-glass" style={{color: '#52307c'}}/>
-        </Marker>
-        <Marker coordinate={{latitude: 22.287, longitude: 114.135}} title="Shop">
-          <Icon type="MaterialIcons" name="location-on" style={{color: '#ff0000'}}/>
-        </Marker>
-        <Circle center={{latitude: 22.285, longitude: 114.133}} radius={75} strokeColor="#52307c33" fillColor="#52307c33"/>
-        <Circle center={{latitude: 22.285, longitude: 114.134}} radius={75} strokeColor="#52307c33" fillColor="#52307c33"/>
-        <Circle center={{latitude: 22.282, longitude: 114.134}} radius={75} strokeColor="#52307c33" fillColor="#52307c33"/>} */}
         <Marker coordinate={{latitude: location.latitude, longitude: location.longitude}} title="My Location">
           <Icon type="FontAwesome5" name="male" style={{color: '#52307c'}}/>
         </Marker>
+        {/* <Marker coordinate={{latitude: 22.287, longitude: 114.135}} title="Shop">
+          <Icon type="MaterialIcons" name="location-on" style={{color: '#ff0000'}}/>
+        </Marker>
+        <Marker coordinate={{latitude: 22.28, longitude: 114.13}} title="Checkpoint">
+          <Icon type="Foundation" name="magnifying-glass" style={{color: '#52307c'}}/>
+        </Marker>
+        <Marker coordinate={{latitude: 22.284, longitude: 114.135}} title="Coupon">
+          <Icon type="MaterialIcons" name="confirmation-number" style={{color: '#52307c'}}/>
+        </Marker> */}
       </MapView>
       <Button style={styles.menuButton} onPress={() => (props.navigation.openDrawer())}>
         <Icon type="FontAwesome" name="bars" style={styles.buttonIcon}/>
