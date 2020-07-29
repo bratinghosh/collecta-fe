@@ -41,9 +41,16 @@ const MapScreen = (props) => {
   // constructor
   useEffect(() => {
     RNLocation.configure({
+      distanceFilter: 1.0,
       desiredAccuracy: {
-        distanceFilter: 1.0
+        ios: "bestForNavigation",
+        android: "highAccuracy"
       },
+      // Android only
+      androidProvider: "auto",
+      interval: 500,
+      fastestInterval: 1000,
+      maxWaitTime: 500
     });
   }, []);
 
@@ -52,12 +59,7 @@ const MapScreen = (props) => {
     RNLocation.requestPermission({
       ios: "whenInUse",
       android: {
-        detail: "fine",
-        rationale: {
-          title: "Location permission",
-          buttonPositive: "OK",
-          buttonNegative: "Cancel"
-        }
+        detail: "fine"
       }
     }).then(granted => {
       if (granted) {
