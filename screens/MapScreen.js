@@ -77,15 +77,15 @@ const MapScreen = (props) => {
         {/* <Marker coordinate={{latitude: 22.287, longitude: 114.135}} title="Shop">
           <Icon type="MaterialIcons" name="location-on" style={{color: '#ff0000'}}/>
         </Marker>
-        <Marker coordinate={{latitude: 22.28, longitude: 114.13}} title="Checkpoint">
-          <Icon type="Foundation" name="magnifying-glass" style={{color: '#52307c'}}/>
-        </Marker>
         <Marker coordinate={{latitude: 22.284, longitude: 114.135}} title="Coupon">
           <Icon type="MaterialIcons" name="confirmation-number" style={{color: '#52307c'}}/>
         </Marker> */}
       </MapView>
       <Button style={styles.menuButton} onPress={() => (props.navigation.openDrawer())}>
         <Icon type="FontAwesome" name="bars" style={styles.buttonIcon}/>
+      </Button>
+      <Button style={styles.searchCouponButton} onPress={() => {setCheckpointSnackbarVisible(!checkpointSnackbarVisible)}}>
+        <Icon type="Foundation" name="magnifying-glass" style={styles.buttonIcon}/>
       </Button>
       <Button style={styles.cancelLocationButton} onPress={() => {}}>
         <Icon type="MaterialIcons" name="location-off" style={styles.buttonIcon}/>
@@ -94,10 +94,10 @@ const MapScreen = (props) => {
         <Icon type="FontAwesome5" name="crosshairs" style={styles.buttonIcon}/>
       </Button>
       <Snackbar action={{label: 'Show Me', onPress: () => {props.navigation.navigate('My Collection')}}} visible={couponSnackbarVisible} onDismiss={() => {setCouponSnackbarVisible(!couponSnackbarVisible)}} style={styles.snackbar} duration={5000}>
-        You have discovered a new Coupon!
+        You have collected a new Coupon!
       </Snackbar>
       <Snackbar visible={checkpointSnackbarVisible} onDismiss={() => {setCheckpointSnackbarVisible(!checkpointSnackbarVisible)}} style={styles.snackbar} duration={5000}>
-        You have reached a Checkpoint!
+        New Coupons have been revealed near your location!
       </Snackbar>
     </Container>
   );
@@ -138,7 +138,21 @@ const styles = StyleSheet.create({
   cancelLocationButton: {
     backgroundColor: '#ffffff',
     borderRadius: 30,
-    bottom: 130,
+    bottom: 190,
+    height: 60,
+    justifyContent: 'center',
+    position: 'absolute',
+    right: 30,
+    width: 60,
+    shadowColor: '#52307c',
+    shadowOpacity: 0.5,
+    shadowOffset : { width: 4, height: 4},
+    elevation: 5
+  },
+  searchCouponButton: {
+    backgroundColor: '#ffffff',
+    borderRadius: 30,
+    bottom: 120,
     height: 60,
     justifyContent: 'center',
     position: 'absolute',
