@@ -12,7 +12,6 @@ import MapScreen from './screens/MapScreen';
 import MyCollectionScreen from './screens/MyCollectionScreen';
 import SettingsScreen from './screens/SettingsScreen';
 import LoginScreen from './screens/LoginScreen';
-import RegisterScreen from './screens/RegisterScreen';
 
 import CustomDrawer from './components/CustomDrawer';
 
@@ -35,10 +34,9 @@ const App = () => {
     <NavigationContainer>
       <PaperProvider>
         <SafeAreaView style={styles.container}>
-          <Stack.Navigator initialRouteName="App" screenOptions={{headerShown: false}}>
+          <Stack.Navigator initialRouteName="Main" screenOptions={{headerShown: false}}>
             <Stack.Screen name="Main" component={MainScreen} />
             <Stack.Screen name="Login" component={LoginScreen} />
-            <Stack.Screen name="Register" component={RegisterScreen} />
             <Stack.Screen name="App" component={MainAppScreen} />
           </Stack.Navigator>
         </SafeAreaView>
