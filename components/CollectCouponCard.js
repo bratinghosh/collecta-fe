@@ -9,7 +9,7 @@ const CollectCouponCard = () => {
         <Body>
           <Image source={require('../assets/images/example_coupon.png')} style={styles.couponImage} />
           <Button style={styles.collectButton} onPress={() => {}} rounded bordered>
-            <Text style={styles.collectText}>Add to Collection</Text>
+            <Text style={styles.collectText}>Collect</Text>
           </Button>
         </Body>
       </CardItem>

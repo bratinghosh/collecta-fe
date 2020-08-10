@@ -33,14 +33,14 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
-    backgroundColor: '#52307c'
+    backgroundColor: '#ffffff'
   },
   headerIcon: {
-    color: '#ffffff',
+    color: '#52307c',
     fontSize: 27,
   },
   screenName: {
-    color: '#ffffff',
+    color: '#52307c',
     fontSize: 18
   }
 });

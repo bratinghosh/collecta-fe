@@ -10,7 +10,6 @@ import DiscoverScreen from './screens/DiscoverScreen';
 import MainScreen from './screens/MainScreen';
 import MapScreen from './screens/MapScreen';
 import MyCollectionScreen from './screens/MyCollectionScreen';
-import SettingsScreen from './screens/SettingsScreen';
 import LoginScreen from './screens/LoginScreen';
 
 import CustomDrawer from './components/CustomDrawer';
@@ -24,7 +23,6 @@ const MainAppScreen = () => {
       <Drawer.Screen name="Home" component={MapScreen} options={{ swipeEnabled: false }} />
       <Drawer.Screen name="Discover" component={DiscoverScreen} options={{ swipeEnabled: false }} />
       <Drawer.Screen name="My Collection" component={MyCollectionScreen} options={{ swipeEnabled: false }} />
-      <Drawer.Screen name="Settings" component={SettingsScreen} options={{ swipeEnabled: false }} />
     </Drawer.Navigator>
   );
 };

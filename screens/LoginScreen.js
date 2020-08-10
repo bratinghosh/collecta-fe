@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Dimensions, StyleSheet, Text, View } from 'react-native';
 import { Button, Container, Icon } from 'native-base';
 import { TextInput } from 'react-native-paper';
 
@@ -19,13 +19,13 @@ const LoginScreen = (props) => {
         <Text style={styles.loginButtonText}>Login</Text>
       </Button>
       <View style={styles.oauthContainer}>
-        <Button style={styles.oauthButton} onPress={() => {}} rounded bordered>
-          <Icon type="FontAwesome" name="facebook-square" style={styles.backIcon}/>
-          <Text style={styles.oauthButtonText}>Login with Facebook</Text>
+        <Button style={styles.oauthFacebookButton} onPress={() => {}} rounded bordered>
+          <Icon type="FontAwesome" name="facebook-square" style={styles.facebookIcon}/>
+          <Text style={styles.oauthFacebookButtonText}>Login with Facebook</Text>
         </Button>
-        <Button style={styles.oauthButton} onPress={() => {}} rounded bordered>
-          <Icon type="FontAwesome" name="google" style={styles.backIcon}/>
-          <Text style={styles.oauthButtonText}>Login with Google</Text>
+        <Button style={styles.oauthGoogleButton} onPress={() => {}} rounded bordered>
+          <Icon type="FontAwesome" name="google" style={styles.googleIcon}/>
+          <Text style={styles.oauthGoogleButtonText}>Login with Google</Text>
         </Button>
       </View>
     </Container>
@@ -90,24 +90,49 @@ const styles = StyleSheet.create({
   },
   oauthContainer: {
     paddingTop: 25,
+    width: Dimensions.get('window').width * 0.90,
     borderTopWidth: 1,
-    borderColor: '#52307c'
+    borderColor: '#aaaaaa'
   },
-  oauthButton: {
+  oauthFacebookButton: {
     alignSelf: 'center',
     backgroundColor: '#ffffff',
     justifyContent:'center',
     marginVertical: 3,
     width: 300,
-    borderColor: '#52307c'
+    borderColor: '#3b5998'
   },
-  oauthButtonText: {
-    color: '#52307c',
+  oauthFacebookButtonText: {
+    color: '#3b5998',
     fontSize: 18,
     fontWeight: '400',
     paddingVertical: 5,
     width: 225,
     textAlign: 'center'
+  },
+  oauthGoogleButton: {
+    alignSelf: 'center',
+    backgroundColor: '#ffffff',
+    justifyContent:'center',
+    marginVertical: 3,
+    width: 300,
+    borderColor: '#db4437'
+  },
+  oauthGoogleButtonText: {
+    color: '#db4437',
+    fontSize: 18,
+    fontWeight: '400',
+    paddingVertical: 5,
+    width: 225,
+    textAlign: 'center'
+  },
+  facebookIcon: {
+    color: '#3b5998',
+    fontSize: 27,
+  },
+  googleIcon: {
+    color: '#db4437',
+    fontSize: 27,
   }
 });
 
